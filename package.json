@@ -4,9 +4,8 @@
   "version": "0.1.1",
   "type": "module",
   "main": "dist/main.js",
-  "types": "dist/main.d.ts",
   "files": [
-    "/dist"
+    "dist"
   ],
   "scripts": {
     "dev": "vite",
@@ -16,6 +15,7 @@
     "test": "vitest"
   },
   "devDependencies": {
+    "@types/node": "^20.11.11",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
     "vite-plugin-dts": "^3.7.2",

@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
-import dts from 'vite-plugin-dts'
 import { resolve } from 'path'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   plugins: [
@@ -11,7 +11,11 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'lib/main.ts'),
       formats: ['es'],
-      fileName: "main",
+    },
+    rollupOptions: {
+      output: {
+        entryFileNames: '[name].js',
+      }
     }
   }
 })

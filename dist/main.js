@@ -1,120 +1,79 @@
-var T = Object.defineProperty;
-var v = (t, e, r) => e in t ? T(t, e, { enumerable: !0, configurable: !0, writable: !0, value: r }) : t[e] = r;
-var c = (t, e, r) => (v(t, typeof e != "symbol" ? e + "" : e, r), r);
-const S = "http://purl.org/ontology/bibo/", d = "http://www.cidoc-crm.org/lrmoo/", n = "http://www.cidoc-crm.org/cidoc-crm/", f = "http://www.ics.forth.gr/isl/CRMdig/", u = "http://purl.org/dc/elements/1.1/", a = "http://purl.org/dc/terms/", s = "http://xmlns.com/foaf/0.1/", h = "http://data-iremus.huma-num.fr/ns/hemef#", C = "http://data-iremus.huma-num.fr/files/", o = "http://data-iremus.huma-num.fr/id/", E = "http://data-iremus.huma-num.fr/id/", R = "http://data-iremus.huma-num.fr/ns/", w = "http://data-iremus.huma-num.fr/graph/", O = "http://data-iremus.huma-num.fr/ns/musrad30#", A = "http://www.w3.org/2002/07/owl#", _ = "http://www.w3.org/1999/02/22-rdf-syntax-ns#", l = "http://www.w3.org/2000/01/rdf-schema#", I = "http://schema.org/", i = "http://www.w3.org/2004/02/skos/core#", b = {
+var S = Object.defineProperty;
+var p = (t, e, r) => e in t ? S(t, e, { enumerable: !0, configurable: !0, writable: !0, value: r }) : t[e] = r;
+var s = (t, e, r) => (p(t, typeof e != "symbol" ? e + "" : e, r), r);
+const _ = "http://purl.org/ontology/bibo/", l = "http://www.cidoc-crm.org/lrmoo/", n = "http://www.cidoc-crm.org/cidoc-crm/", f = "http://www.ics.forth.gr/isl/CRMdig/", h = "http://purl.org/dc/elements/1.1/", a = "http://purl.org/dc/terms/", o = "http://xmlns.com/foaf/0.1/", R = "http://data-iremus.huma-num.fr/ns/hemef#", j = "http://data-iremus.huma-num.fr/files/", c = "http://data-iremus.huma-num.fr/id/", w = "http://data-iremus.huma-num.fr/id/", A = "http://data-iremus.huma-num.fr/ns/", B = "http://data-iremus.huma-num.fr/graph/", I = "http://data-iremus.huma-num.fr/ns/musrad30#", O = "http://www.w3.org/2002/07/owl#", m = "http://www.w3.org/1999/02/22-rdf-syntax-ns#", i = "http://www.w3.org/2000/01/rdf-schema#", D = "http://schema.org/", d = "http://www.w3.org/2004/02/skos/core#", E = {
   [n]: "crm",
   [f]: "crmdig",
-  [S]: "bibo",
-  [u]: "dc",
+  [_]: "bibo",
+  [h]: "dc",
   [a]: "dcterms",
-  [s]: "foaf",
-  [h]: "hemef",
-  [E]: "",
-  [R]: "",
-  [O]: "musrad30",
-  [d]: "lrmoo",
-  [A]: "owl",
-  [_]: "rdf",
-  [l]: "rdfs",
-  [I]: "schema",
-  [i]: "skos",
-  [w]: ""
-}, g = Object.entries(b).sort(
+  [o]: "foaf",
+  [R]: "hemef",
+  [w]: "",
+  [A]: "",
+  [I]: "musrad30",
+  [l]: "lrmoo",
+  [O]: "owl",
+  [m]: "rdf",
+  [i]: "rdfs",
+  [D]: "schema",
+  [d]: "skos",
+  [B]: ""
+}, y = Object.entries(E).sort(
   (t, e) => t[0].length < e[0].length ? 1 : -1
-), $ = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  BIBO_BASE: S,
-  CRMDIG_BASE: f,
-  CRM_BASE: n,
-  DATA_IREMUS_FILES_BASE: C,
-  DATA_IREMUS_ID_BASE: o,
-  DCTERMS_BASE: a,
-  DC_BASE: u,
-  FOAF_BASE: s,
-  HEMEF_BASE: h,
-  IREMUS_GRAPH_BASE: w,
-  IREMUS_NS_BASE: R,
-  IREMUS_RESOURCE_BASE: E,
-  LRMOO_BASE: d,
-  MUSRAD30_BASE: O,
-  OWL_BASE: A,
-  PRIORITIZED_RDF_PREFIXES: g,
-  RDFS_BASE: l,
-  RDF_BASE: _,
-  RDF_PREFIXES: b,
-  SCHEMAORG_BASE: I,
-  SKOS_BASE: i
-}, Symbol.toStringTag, { value: "Module" }));
-function N(t) {
-  return t.startsWith(n) || t.startsWith(f) || t.startsWith(d) ? t.split("/").slice(-1)[0].split("_")[0] : null;
+);
+function F(t) {
+  return t.startsWith(n) || t.startsWith(f) || t.startsWith(l) ? t.split("/").slice(-1)[0].split("_")[0] : null;
 }
-const k = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  getCode: N
-}, Symbol.toStringTag, { value: "Module" }));
-var m = /* @__PURE__ */ ((t) => (t.literal = "literal", t.uri = "uri", t))(m || {}), y = /* @__PURE__ */ ((t) => (t.de = "🇩🇪", t.en = "🇬🇧", t.es = "🇪🇸", t.fr = "🇫🇷", t.it = "🇮🇹", t))(y || {}), p = /* @__PURE__ */ ((t) => (t.NONE = "", t.DE = "de", t.EL = "el", t.EN = "en", t.ES = "es", t.FR = "fr", t.IT = "it", t.PT = "pt", t.RU = "ru", t.ZH = "zh", t))(p || {});
-const U = [
+var u = /* @__PURE__ */ ((t) => (t.literal = "literal", t.uri = "uri", t))(u || {}), C = /* @__PURE__ */ ((t) => (t.de = "🇩🇪", t.en = "🇬🇧", t.es = "🇪🇸", t.fr = "🇫🇷", t.it = "🇮🇹", t))(C || {}), b = /* @__PURE__ */ ((t) => (t.NONE = "", t.DE = "de", t.EL = "el", t.EN = "en", t.ES = "es", t.FR = "fr", t.IT = "it", t.PT = "pt", t.RU = "ru", t.ZH = "zh", t))(b || {});
+const q = [
   "fr",
   "en",
   "it",
   "de"
   /* DE */
-], K = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  CountryFlags: y,
-  LANGS_ORDER: U,
-  Languages: p,
-  Type: m
-}, Symbol.toStringTag, { value: "Module" })), B = [
+], M = [
   n + "P1_is_identified_by",
-  u + "title",
+  h + "title",
   a + "title",
-  s + "familyName",
-  s + "firstName",
-  s + "givenName",
-  s + "name",
-  l + "label",
-  i + "prefLabel"
-], F = [
-  ...B,
-  _ + "type",
+  o + "familyName",
+  o + "firstName",
+  o + "givenName",
+  o + "name",
+  i + "label",
+  d + "prefLabel"
+], H = [
+  ...M,
+  m + "type",
   a + "creator",
-  i + "inScheme",
-  l + "subClassOf"
-], q = {
-  selection: o + "9d0388cb-a178-46b2-b047-b5a98f7bdf0b",
-  analyticalEntity: o + "6d72746a-9f28-4739-8786-c6415d53c56d",
-  score: o + "bf9dce29-8123-4e8e-b24d-0c7f134bbc8e",
-  software: o + "29b00e39-75da-4945-b6c4-a0ca00f96f68",
-  hexColorCode: o + "5f1bb74f-6ea0-4073-8b68-086f98454f1c",
-  emoji: o + "04242f64-fbb3-4b5b-bb2e-3ddd59eeea18",
-  orcidId: o + "d7ef2583-ff31-4913-9ed3-bc3a1c664b21",
-  note: o + "d2a536eb-4a95-484f-b13d-f597ac8ea2fd",
-  verticality: o + "90a2ae1e-0fbc-4357-ac8a-b4b3f2a06e86",
-  fondamentaleIdentification: o + "003559fc-f033-4fc3-9c05-0d5f283123ed",
-  orcidGeneratedName: o + "73ea8d74-3526-4f6a-8830-dd369795650d"
+  d + "inScheme",
+  i + "subClassOf"
+], x = {
+  selection: c + "9d0388cb-a178-46b2-b047-b5a98f7bdf0b",
+  analyticalEntity: c + "6d72746a-9f28-4739-8786-c6415d53c56d",
+  score: c + "bf9dce29-8123-4e8e-b24d-0c7f134bbc8e",
+  software: c + "29b00e39-75da-4945-b6c4-a0ca00f96f68",
+  hexColorCode: c + "5f1bb74f-6ea0-4073-8b68-086f98454f1c",
+  emoji: c + "04242f64-fbb3-4b5b-bb2e-3ddd59eeea18",
+  orcidId: c + "d7ef2583-ff31-4913-9ed3-bc3a1c664b21",
+  note: c + "d2a536eb-4a95-484f-b13d-f597ac8ea2fd",
+  verticality: c + "90a2ae1e-0fbc-4357-ac8a-b4b3f2a06e86",
+  fondamentaleIdentification: c + "003559fc-f033-4fc3-9c05-0d5f283123ed",
+  orcidGeneratedName: c + "73ea8d74-3526-4f6a-8830-dd369795650d"
 };
-function j(t) {
+function N(t) {
   const e = t.find((r) => r.label);
   return e ? e.label.value : "";
 }
-function x(t, e) {
-  return `${j(e)}   ${D(t)}`;
+function G(t, e) {
+  return `${N(e)}   ${T(t)}`;
 }
-function D(t) {
-  for (const [e, r] of Object.entries(b))
+function T(t) {
+  for (const [e, r] of Object.entries(E))
     t = t.replace(e, r !== "" ? r + ":" : "");
   return t;
 }
-const X = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  LABEL_PREDICATES: B,
-  RESOURCE_IDENTITY_PREDICATES: F,
-  SHERLOCK_TYPE: q,
-  computeIdentity: j,
-  computeResourceLabel: x,
-  formatUri: D
-}, Symbol.toStringTag, { value: "Module" })), z = async (t, e = "https://data-iremus.huma-num.fr/sparql") => {
+const W = async (t, e = "https://data-iremus.huma-num.fr/sparql") => {
   let r = await fetch(e, {
     method: "POST",
     headers: {
@@ -127,58 +86,78 @@ const X = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   });
   return r = await r.json(), r;
 };
-function H(t, e) {
+function $(t, e) {
   for (const r in e)
     t = t.replaceAll("${" + r + "}", e[r]);
   return t;
 }
-const Y = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  bind: H,
-  sparqlEndpoint: z
-}, Symbol.toStringTag, { value: "Module" }));
-class G {
+class k {
   constructor() {
-    c(this, "head");
-    c(this, "results");
-    this.head = new M(), this.results = new P();
+    s(this, "head");
+    s(this, "results");
+    this.head = new v(), this.results = new U();
   }
 }
-class M {
+class v {
   constructor() {
-    c(this, "vars");
+    s(this, "vars");
     this.vars = [];
   }
 }
-class P {
+class U {
   constructor() {
-    c(this, "bindings");
+    s(this, "bindings");
     this.bindings = [];
   }
 }
-class L {
+class g {
 }
-class Q {
+class K {
   constructor() {
-    c(this, "lang");
-    c(this, "type");
-    c(this, "value");
-    this.lang = p.NONE, this.type = m.uri, this.value = "";
+    s(this, "lang");
+    s(this, "type");
+    s(this, "value");
+    this.lang = b.NONE, this.type = u.uri, this.value = "";
   }
 }
-const Z = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  SparqlResultObject: G,
-  SparqlResultObject_Binding: L,
-  SparqlResultObject_Head: M,
-  SparqlResultObject_Results: P,
-  SparqlResultObject_Variable: Q
-}, Symbol.toStringTag, { value: "Module" }));
 export {
-  k as CIDOC_CRM,
-  K as RDF_Literal,
-  $ as RDF_Prefixes,
-  X as RDF_Resource_Identity,
-  Y as SPARQL_Querying,
-  Z as SPARQL_Response
+  _ as BIBO_BASE,
+  f as CRMDIG_BASE,
+  n as CRM_BASE,
+  C as CountryFlags,
+  j as DATA_IREMUS_FILES_BASE,
+  c as DATA_IREMUS_ID_BASE,
+  a as DCTERMS_BASE,
+  h as DC_BASE,
+  o as FOAF_BASE,
+  R as HEMEF_BASE,
+  B as IREMUS_GRAPH_BASE,
+  A as IREMUS_NS_BASE,
+  w as IREMUS_RESOURCE_BASE,
+  M as LABEL_PREDICATES,
+  q as LANGS_ORDER,
+  l as LRMOO_BASE,
+  b as Languages,
+  I as MUSRAD30_BASE,
+  O as OWL_BASE,
+  y as PRIORITIZED_RDF_PREFIXES,
+  i as RDFS_BASE,
+  m as RDF_BASE,
+  E as RDF_PREFIXES,
+  H as RESOURCE_IDENTITY_PREDICATES,
+  D as SCHEMAORG_BASE,
+  x as SHERLOCK_TYPE,
+  d as SKOS_BASE,
+  k as SparqlResultObject,
+  g as SparqlResultObject_Binding,
+  v as SparqlResultObject_Head,
+  U as SparqlResultObject_Results,
+  K as SparqlResultObject_Variable,
+  u as Type,
+  $ as bind,
+  N as computeIdentity,
+  G as computeResourceLabel,
+  T as formatUri,
+  F as getCode,
+  W as sparqlEndpoint
 };
