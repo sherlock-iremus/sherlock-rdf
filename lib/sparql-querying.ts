@@ -1,4 +1,4 @@
-export const sparqlEndpoint = async (query: string, sparqlEndpointUrl = 'https://data-iremus.huma-num.fr/sparql') => {
+export const querySparqlEndpoint = async (query: string, sparqlEndpointUrl = 'https://data-iremus.huma-num.fr/sparql') => {
   let res = await fetch(sparqlEndpointUrl, {
     method: "POST",
     headers: {
