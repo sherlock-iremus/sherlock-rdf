@@ -1,15 +1,16 @@
+
 // https://redux-toolkit.js.org/rtk-query/usage/queries
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { SparqlResultObject } from './sparql-result'
+import { SparqlQueryResultObject } from './sparql-result'
 
 export const sparqlApi = createApi({
     reducerPath: 'sparqlApi',
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://data-iremus.huma-num.fr/sparql'
     }),
-    endpoints: (build) => ({
-        sparql: build.query<SparqlResultObject, string>({
+    endpoints: builder => ({
+        getSparqlQueryResult: builder.query<SparqlQueryResultObject, string>({
             query: (query: string) => ({
                 url: '/',
                 method: 'POST',
@@ -19,4 +20,5 @@ export const sparqlApi = createApi({
     })
 })
 
-export const { useSparqlQuery } = sparqlApi
+// export const { useSparqlQuery } = sparqlApi
+export const { useGetSparqlQueryResultQuery } = sparqlApi

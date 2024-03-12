@@ -1,16 +1,16 @@
 import { Languages, Type } from "./rdf-literal"
 
-export class SparqlResultObject {
-    head: SparqlResultObject_Head
-    results: SparqlResultObject_Results
+export class SparqlQueryResultObject {
+    head: SparqlQueryResultObject_Head
+    results: SparqlQueryResultObject_Results
 
     constructor() {
-        this.head = new SparqlResultObject_Head()
-        this.results = new SparqlResultObject_Results()
+        this.head = new SparqlQueryResultObject_Head()
+        this.results = new SparqlQueryResultObject_Results()
     }
 }
 
-export class SparqlResultObject_Head {
+export class SparqlQueryResultObject_Head {
     vars: string[]
 
     constructor() {
@@ -18,19 +18,19 @@ export class SparqlResultObject_Head {
     }
 }
 
-export class SparqlResultObject_Results {
-    bindings: SparqlResultObject_Binding[]
+export class SparqlQueryResultObject_Results {
+    bindings: SparqlQueryResultObject_Binding[]
 
     constructor() {
         this.bindings = []
     }
 }
 
-export class SparqlResultObject_Binding {
-    [variable: string]: SparqlResultObject_Variable
+export class SparqlQueryResultObject_Binding {
+    [variable: string]: SparqlQueryResultObject_Variable
 }
 
-export class SparqlResultObject_Variable {
+export class SparqlQueryResultObject_Variable {
     lang: Languages
     type: Type
     value: string

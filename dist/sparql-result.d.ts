@@ -1,21 +1,21 @@
 import { Languages, Type } from "./rdf-literal";
-export declare class SparqlResultObject {
-    head: SparqlResultObject_Head;
-    results: SparqlResultObject_Results;
+export declare class SparqlQueryResultObject {
+    head: SparqlQueryResultObject_Head;
+    results: SparqlQueryResultObject_Results;
     constructor();
 }
-export declare class SparqlResultObject_Head {
+export declare class SparqlQueryResultObject_Head {
     vars: string[];
     constructor();
 }
-export declare class SparqlResultObject_Results {
-    bindings: SparqlResultObject_Binding[];
+export declare class SparqlQueryResultObject_Results {
+    bindings: SparqlQueryResultObject_Binding[];
     constructor();
 }
-export declare class SparqlResultObject_Binding {
-    [variable: string]: SparqlResultObject_Variable;
+export declare class SparqlQueryResultObject_Binding {
+    [variable: string]: SparqlQueryResultObject_Variable;
 }
-export declare class SparqlResultObject_Variable {
+export declare class SparqlQueryResultObject_Variable {
     lang: Languages;
     type: Type;
     value: string;

@@ -1,8 +1,8 @@
 import { expect, test } from 'vitest'
-import { SparqlResultObject } from './sparql-result'
+import { SparqlQueryResultObject } from './sparql-result'
 
 test('Injecting JSON SPARQL Result Object to TypeScript objects', () => {
-  const sro: SparqlResultObject = JSON.parse(SPARQL_EXAMPLE_JSON_RESULT_OBJECT)
+  const sro: SparqlQueryResultObject = JSON.parse(SPARQL_EXAMPLE_JSON_RESULT_OBJECT)
   expect(sro.head.vars).toEqual(["book", "title"])
   expect(sro.results.bindings.length).toBe(7)
 })
