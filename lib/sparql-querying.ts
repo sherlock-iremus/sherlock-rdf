@@ -1,3 +1,5 @@
+import { SparqlQueryResultObject } from './sparql-result'
+
 export const querySparqlEndpoint = async (query: string, sparqlEndpointUrl = 'https://data-iremus.huma-num.fr/sparql') => {
   let res = await fetch(sparqlEndpointUrl, {
     method: "POST",
@@ -8,27 +10,28 @@ export const querySparqlEndpoint = async (query: string, sparqlEndpointUrl = 'ht
     cache: "no-cache",
     redirect: "follow",
     body: `query=${encodeURIComponent(query)}`,
-  });
-  res = await res.json();
-  return res;
-};
+  })
+  const json: string = await res.json()
+  const sparqlQueryResultObject: SparqlQueryResultObject = JSON.parse(json)
+  return sparqlQueryResultObject
+}
 
 export function bind(query: string, parameters: Array<string>) {
   for (const p in parameters) {
-    query = query.replaceAll("${" + p + "}", parameters[p]);
+    query = query.replaceAll("${" + p + "}", parameters[p])
   }
-  return query;
+  return query
 }
 
 // export const rekeyBindings = (bindings, keys = {}) => {
 //   return bindings.map((binding) => {
-//     const rekeyedBinding = {};
+//     const rekeyedBinding = {}
 //     for (const k in binding) {
-//       let v = binding[k].value;
+//       let v = binding[k].value
 //       if (binding[k].datatype === "http://www.w3.org/2001/XMLSchema#integer")
-//         v = parseInt(v);
-//       rekeyedBinding[keys[k] || k] = v;
+//         v = parseInt(v)
+//       rekeyedBinding[keys[k] || k] = v
 //     }
-//     return rekeyedBinding;
-//   });
-// };
+//     return rekeyedBinding
+//   })
+// }

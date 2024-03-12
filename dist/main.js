@@ -5808,7 +5808,7 @@ const ta = ea({
     })
   })
 }), { useGetSparqlQueryResultQuery: ya } = ta, ma = async (e, t = "https://data-iremus.huma-num.fr/sparql") => {
-  let n = await fetch(t, {
+  const o = await (await fetch(t, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -5817,8 +5817,8 @@ const ta = ea({
     cache: "no-cache",
     redirect: "follow",
     body: `query=${encodeURIComponent(e)}`
-  });
-  return n = await n.json(), n;
+  })).json();
+  return JSON.parse(o);
 };
 function va(e, t) {
   for (const n in t)
