@@ -11,7 +11,7 @@ export const querySparqlEndpoint = async (query: string, sparqlEndpointUrl = 'ht
     redirect: "follow",
     body: `query=${encodeURIComponent(query)}`,
   })
-  const json: string = await res.json()
+  const json: string = await res.text()
   const sparqlQueryResultObject: SparqlQueryResultObject = JSON.parse(json)
   return sparqlQueryResultObject
 }

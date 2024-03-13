@@ -15,7 +15,8 @@ export const sparqlApi = createApi({
                 url: '/',
                 method: 'POST',
                 body: new URLSearchParams({ query }),
-            })
+            }),
+            transformResponse: (_) => _ as SparqlQueryResultObject
         })
     })
 })

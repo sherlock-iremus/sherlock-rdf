@@ -5817,7 +5817,7 @@ const ta = ea({
     cache: "no-cache",
     redirect: "follow",
     body: `query=${encodeURIComponent(e)}`
-  })).json();
+  })).text();
   return JSON.parse(o);
 };
 function va(e, t) {
