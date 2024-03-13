@@ -7,12 +7,11 @@ import { SparqlQueryResultObject } from './sparql-result'
 export const sparqlApi = createApi({
     reducerPath: 'sparqlApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://data-iremus.huma-num.fr/sparql'
+        baseUrl: import.meta.env.DEV ? 'http://localhost:3030/iremus/' : 'https://data-iremus.huma-num.fr/sparql/'
     }),
     endpoints: builder => ({
         getSparqlQueryResult: builder.query<SparqlQueryResultObject, string>({
             query: (query: string) => ({
-                url: '/',
                 method: 'POST',
                 body: new URLSearchParams({ query }),
             }),
