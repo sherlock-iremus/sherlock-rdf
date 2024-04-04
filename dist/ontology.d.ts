@@ -1,5 +1,6 @@
-import { Resource } from './resource';
 import { Languages } from './rdf-literal';
+import { Resource } from './resource';
+
 export declare class Ontology {
     static void: Ontology;
     private _classesRegistry;

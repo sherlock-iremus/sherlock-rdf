@@ -1,4 +1,5 @@
-import { Languages, Type } from "./rdf-literal";
+import { Languages, Type } from './rdf-literal';
+
 export declare class SparqlQueryResultObject {
     head: SparqlQueryResultObject_Head;
     results: SparqlQueryResultObject_Results;
