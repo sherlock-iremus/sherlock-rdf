@@ -17,5 +17,3 @@ export const sparqlApi = createApi({
         })
     })
 })
-
-export const { useGetSparqlQueryResultQuery } = sparqlApi

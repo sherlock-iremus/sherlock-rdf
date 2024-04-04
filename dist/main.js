@@ -17,7 +17,7 @@ function $i(e, t) {
   }
   return Object.freeze(Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }));
 }
-const Fi = "http://purl.org/ontology/bibo/", Jn = "http://www.cidoc-crm.org/lrmoo/", yr = "http://www.cidoc-crm.org/cidoc-crm/", Zn = "http://www.ics.forth.gr/isl/CRMdig/", Xn = "http://purl.org/dc/elements/1.1/", mr = "http://purl.org/dc/terms/", Ue = "http://xmlns.com/foaf/0.1/", Vi = "http://data-iremus.huma-num.fr/ns/hemef#", sa = "http://data-iremus.huma-num.fr/files/", me = "http://data-iremus.huma-num.fr/id/", qi = "http://data-iremus.huma-num.fr/id/", zi = "http://data-iremus.huma-num.fr/ns/", Qi = "http://data-iremus.huma-num.fr/graph/", Li = "http://data-iremus.huma-num.fr/ns/musrad30#", Ui = "http://www.w3.org/2002/07/owl#", eo = "http://www.w3.org/1999/02/22-rdf-syntax-ns#", vr = "http://www.w3.org/2000/01/rdf-schema#", Wi = "http://schema.org/", gr = "http://www.w3.org/2004/02/skos/core#", Rt = /* @__PURE__ */ new Map([
+const Fi = "http://purl.org/ontology/bibo/", Jn = "http://www.cidoc-crm.org/lrmoo/", yr = "http://www.cidoc-crm.org/cidoc-crm/", Zn = "http://www.ics.forth.gr/isl/CRMdig/", Xn = "http://purl.org/dc/elements/1.1/", mr = "http://purl.org/dc/terms/", Ue = "http://xmlns.com/foaf/0.1/", Vi = "http://data-iremus.huma-num.fr/ns/hemef#", ia = "http://data-iremus.huma-num.fr/files/", me = "http://data-iremus.huma-num.fr/id/", qi = "http://data-iremus.huma-num.fr/id/", zi = "http://data-iremus.huma-num.fr/ns/", Qi = "http://data-iremus.huma-num.fr/graph/", Li = "http://data-iremus.huma-num.fr/ns/musrad30#", Ui = "http://www.w3.org/2002/07/owl#", eo = "http://www.w3.org/1999/02/22-rdf-syntax-ns#", vr = "http://www.w3.org/2000/01/rdf-schema#", Wi = "http://schema.org/", gr = "http://www.w3.org/2004/02/skos/core#", Rt = /* @__PURE__ */ new Map([
   [yr, "crm"],
   [Zn, "crmdig"],
   [Fi, "bibo"],
@@ -35,7 +35,7 @@ const Fi = "http://purl.org/ontology/bibo/", Jn = "http://www.cidoc-crm.org/lrmo
   [vr, "rdfs"],
   [Wi, "schema"],
   [gr, "skos"]
-]), ua = Object.entries(Rt).sort(
+]), sa = Object.entries(Rt).sort(
   (e, t) => e[0].length < t[0].length ? 1 : -1
 );
 class hn {
@@ -45,13 +45,13 @@ class hn {
     this.prefix = t, this.localPart = n;
   }
 }
-const aa = (e) => {
+const ua = (e) => {
   for (const t of Rt.keys())
     if (e.startsWith(t))
       return new hn(Rt.get(t), e.replace(t, ""));
   return new hn("", e);
 };
-function ca(e) {
+function aa(e) {
   return e.startsWith(yr) || e.startsWith(Zn) || e.startsWith(Jn) ? e.split("/").slice(-1)[0].split("_")[0] : null;
 }
 class Bi {
@@ -74,7 +74,7 @@ class Bi {
     return this._pog;
   }
 }
-class la {
+class ca {
   constructor(t, n, o) {
     K(this, "_lang");
     K(this, "_value");
@@ -92,7 +92,7 @@ class la {
     return this._value;
   }
 }
-class fa {
+class la {
   constructor(t) {
     K(this, "_uri");
     this._uri = t;
@@ -101,7 +101,7 @@ class fa {
     return this._uri;
   }
 }
-class da {
+class fa {
   constructor(t, n, o = void 0) {
     K(this, "_literal");
     K(this, "_resource");
@@ -239,7 +239,7 @@ const Je = class Je extends br {
 K(Je, "void", new Je("", "", Ot.void));
 let yn = Je;
 var to = /* @__PURE__ */ ((e) => (e.literal = "literal", e.uri = "uri", e))(to || {}), Ki = /* @__PURE__ */ ((e) => (e.de = "🇩🇪", e.en = "🇬🇧", e.es = "🇪🇸", e.fr = "🇫🇷", e.it = "🇮🇹", e))(Ki || {}), ro = /* @__PURE__ */ ((e) => (e.NONE = "", e.DE = "de", e.EL = "el", e.EN = "en", e.ES = "es", e.FR = "fr", e.IT = "it", e.PT = "pt", e.RU = "ru", e.ZH = "zh", e))(ro || {});
-const pa = [
+const da = [
   "fr",
   "en",
   "it",
@@ -257,13 +257,13 @@ const Yi = [
   Ue + "name",
   vr + "label",
   gr + "prefLabel"
-], ha = [
+], pa = [
   ...Yi,
   eo + "type",
   mr + "creator",
   gr + "inScheme",
   vr + "subClassOf"
-], ya = {
+], ha = {
   selection: me + "9d0388cb-a178-46b2-b047-b5a98f7bdf0b",
   analyticalEntity: me + "6d72746a-9f28-4739-8786-c6415d53c56d",
   score: me + "bf9dce29-8123-4e8e-b24d-0c7f134bbc8e",
@@ -280,7 +280,7 @@ function Gi(e) {
   const t = e.find((n) => n.label);
   return t ? t.label.value : "";
 }
-function ma(e, t) {
+function ya(e, t) {
   return `${Gi(t)}   ${Ji(e)}`;
 }
 function Ji(e) {
@@ -5807,7 +5807,7 @@ Hook ${S} was either not provided or not a function.`);
     }
   };
 }, ta = /* @__PURE__ */ mu(ku(), ea());
-const ra = ta({
+const ma = ta({
   reducerPath: "sparqlApi",
   baseQuery: au({ baseUrl: "https://data-iremus.huma-num.fr/sparql/" }),
   endpoints: (e) => ({
@@ -5820,7 +5820,7 @@ const ra = ta({
       transformResponse: (t) => t
     })
   })
-}), { useGetSparqlQueryResultQuery: va } = ra, ga = async (e, t = "https://data-iremus.huma-num.fr/sparql") => {
+}), va = async (e, t = "https://data-iremus.huma-num.fr/sparql") => {
   const o = await (await fetch(t, {
     method: "POST",
     headers: {
@@ -5833,33 +5833,33 @@ const ra = ta({
   })).text();
   return JSON.parse(o);
 };
-function ba(e, t) {
+function ga(e, t) {
   for (const n in t)
     e = e.replaceAll("${" + n + "}", t[n]);
   return e;
 }
-class _a {
+class ba {
   constructor() {
     K(this, "head");
     K(this, "results");
-    this.head = new na(), this.results = new oa();
+    this.head = new ra(), this.results = new na();
   }
 }
-class na {
+class ra {
   constructor() {
     K(this, "vars");
     this.vars = [];
   }
 }
-class oa {
+class na {
   constructor() {
     K(this, "bindings");
     this.bindings = [];
   }
 }
-class Ea {
+class _a {
 }
-class Sa {
+class Ea {
   constructor() {
     K(this, "lang");
     K(this, "type");
@@ -5872,52 +5872,51 @@ export {
   Zn as CRMDIG_BASE,
   yr as CRM_BASE,
   Ki as CountryFlags,
-  sa as DATA_IREMUS_FILES_BASE,
+  ia as DATA_IREMUS_FILES_BASE,
   me as DATA_IREMUS_ID_BASE,
   mr as DCTERMS_BASE,
   Xn as DC_BASE,
   Ue as FOAF_BASE,
-  fa as Graph,
+  la as Graph,
   Vi as HEMEF_BASE,
   Qi as IREMUS_GRAPH_BASE,
   zi as IREMUS_NS_BASE,
   qi as IREMUS_RESOURCE_BASE,
   Yi as LABEL_PREDICATES,
-  pa as LANGS_ORDER,
+  da as LANGS_ORDER,
   Jn as LRMOO_BASE,
   ro as Languages,
-  la as Literal,
+  ca as Literal,
   Li as MUSRAD30_BASE,
-  da as OG,
+  fa as OG,
   Ui as OWL_BASE,
   Ot as Ontology,
   Ct as OntologyClass,
   yn as OntologyProperty,
   br as OntologyStuff,
-  ua as PRIORITIZED_RDF_PREFIXES,
+  sa as PRIORITIZED_RDF_PREFIXES,
   hn as PrefixedUri,
   vr as RDFS_BASE,
   eo as RDF_BASE,
   Rt as RDF_PREFIXES,
-  ha as RESOURCE_IDENTITY_PREDICATES,
+  pa as RESOURCE_IDENTITY_PREDICATES,
   Bi as Resource,
   Wi as SCHEMAORG_BASE,
-  ya as SHERLOCK_TYPE,
+  ha as SHERLOCK_TYPE,
   gr as SKOS_BASE,
-  _a as SparqlQueryResultObject,
-  Ea as SparqlQueryResultObject_Binding,
-  na as SparqlQueryResultObject_Head,
-  oa as SparqlQueryResultObject_Results,
-  Sa as SparqlQueryResultObject_Variable,
+  ba as SparqlQueryResultObject,
+  _a as SparqlQueryResultObject_Binding,
+  ra as SparqlQueryResultObject_Head,
+  na as SparqlQueryResultObject_Results,
+  Ea as SparqlQueryResultObject_Variable,
   to as Type,
   Hi as XSDTypes,
-  ba as bind,
+  ga as bind,
   Gi as computeIdentity,
-  ma as computeResourceLabel,
+  ya as computeResourceLabel,
   Ji as formatUri,
-  ca as getCode,
-  aa as getPrefixedUri,
-  ga as querySparqlEndpoint,
-  ra as sparqlApi,
-  va as useGetSparqlQueryResultQuery
+  aa as getCode,
+  ua as getPrefixedUri,
+  va as querySparqlEndpoint,
+  ma as sparqlApi
 };
