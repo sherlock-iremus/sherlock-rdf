@@ -1,7 +1,10 @@
 // https://redux-toolkit.js.org/rtk-query/usage/queries
 
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { SparqlQueryResultObject } from './sparql-result'
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import {
+  SparqlQueryResultObject,
+  SparqlQueryResultObject_Binding,
+} from "./sparql-result";
 
 export const sparqlApi = createApi({
     reducerPath: 'sparqlApi',
@@ -14,6 +17,19 @@ export const sparqlApi = createApi({
                 body: new URLSearchParams({ query }),
             }),
             transformResponse: _ => _ as SparqlQueryResultObject
-        })
+        }),
+        getFlattenedSparqlQueryResult: builder.query<SparqlQueryResultObject, string>({
+          query: (query: string) => ({
+            method: "POST",
+            body: new URLSearchParams({ query }),
+          }),
+          transformResponse: (response: SparqlQueryResultObject) =>
+            response.results.bindings.map(
+              (binding: SparqlQueryResultObject_Binding) =>
+                Object.fromEntries(
+                  Object.entries(binding).map(([key, { value }]) => [key, value])
+                )
+            ),
+        }),
     })
 })
