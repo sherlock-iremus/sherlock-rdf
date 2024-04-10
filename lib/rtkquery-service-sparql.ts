@@ -20,11 +20,9 @@ export const sparqlApi = createApi({
       }),
       transformResponse: (_) => _ as SparqlQueryResultObject,
     }),
-    getFlattenedSparqlQueryResult: builder.query<
-      SparqlQueryResultObject,
-      string
-    >({
+    getFlattenedSparqlQueryResult: builder.query<Object, string>({
       query: (query: string) => ({
+        url: "",
         method: "POST",
         body: new URLSearchParams({ query }),
       }),
