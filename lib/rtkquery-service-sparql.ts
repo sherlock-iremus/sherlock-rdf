@@ -7,29 +7,39 @@ import {
 } from "./sparql-result";
 
 export const sparqlApi = createApi({
-    reducerPath: 'sparqlApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://data-iremus.huma-num.fr/sparql/' }),
-    endpoints: builder => ({
-        getSparqlQueryResult: builder.query<SparqlQueryResultObject, string>({
-            query: (query: string) => ({
-                url: '',
-                method: 'POST',
-                body: new URLSearchParams({ query }),
-            }),
-            transformResponse: _ => _ as SparqlQueryResultObject
-        }),
-        getFlattenedSparqlQueryResult: builder.query<SparqlQueryResultObject, string>({
-          query: (query: string) => ({
-            method: "POST",
-            body: new URLSearchParams({ query }),
-          }),
-          transformResponse: (response: SparqlQueryResultObject) =>
-            response.results.bindings.map(
-              (binding: SparqlQueryResultObject_Binding) =>
-                Object.fromEntries(
-                  Object.entries(binding).map(([key, { value }]) => [key, value])
-                )
-            ),
-        }),
-    })
-})
+  reducerPath: "sparqlApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://data-iremus.huma-num.fr/sparql/",
+  }),
+  endpoints: (builder) => ({
+    getSparqlQueryResult: builder.query<SparqlQueryResultObject, string>({
+      query: (query: string) => ({
+        url: "",
+        method: "POST",
+        body: new URLSearchParams({ query }),
+      }),
+      transformResponse: (_) => _ as SparqlQueryResultObject,
+    }),
+    getFlattenedSparqlQueryResult: builder.query<
+      SparqlQueryResultObject,
+      string
+    >({
+      query: (query: string) => ({
+        method: "POST",
+        body: new URLSearchParams({ query }),
+      }),
+      transformResponse: (response: SparqlQueryResultObject) =>
+        response.results.bindings.map(
+          (binding: SparqlQueryResultObject_Binding) =>
+            Object.fromEntries(
+              Object.entries(binding).map(([key, { value }]) => [key, value])
+            )
+        ),
+    }),
+  }),
+});
+
+export const {
+  useGetSparqlQueryResultQuery,
+  useGetFlattenedSparqlQueryResultQuery,
+} = sparqlApi;
