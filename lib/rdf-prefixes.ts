@@ -26,9 +26,9 @@ export const RDF_PREFIXES = new Map<string, string>([
     [DCTERMS_BASE, "dcterms"],
     [FOAF_BASE, "foaf"],
     [HEMEF_BASE, "hemef"],
-    [IREMUS_GRAPH_BASE, ""],
-    [IREMUS_RESOURCE_BASE, ""],
-    [IREMUS_NS_BASE, ""],
+    [IREMUS_GRAPH_BASE, "iremus-graph"],
+    [IREMUS_RESOURCE_BASE, "iremus-data"],
+    [IREMUS_NS_BASE, "iremus-ns"],
     [LRMOO_BASE, "lrmoo"],
     [MUSRAD30_BASE, "musrad30"],
     [OWL_BASE, "owl"],
@@ -52,11 +52,15 @@ export class PrefixedUri {
     }
 }
 
-export const getPrefixedUri = (uri: string): PrefixedUri => {
+export function getPrefixedUri(uri: string): PrefixedUri {
     for (const base_uri of RDF_PREFIXES.keys()) {
         if (uri.startsWith(base_uri)) {
             return new PrefixedUri(RDF_PREFIXES.get(base_uri) as string, uri.replace(base_uri, ''))
         }
     }
     return new PrefixedUri('', uri)
+}
+
+export function getGraphName(uri: string) {
+    return uri.replace('http://data-iremus.huma-num.fr/graph/', '')
 }
