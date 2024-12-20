@@ -1,6 +1,5 @@
-import { OntologyProperty } from './ontology';
 import { Languages, XSDTypes } from './rdf-literal';
-
+import { OntologyProperty } from './ontology';
 export declare class Resource {
     private _pog;
     private _uri;

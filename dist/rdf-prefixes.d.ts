@@ -2,6 +2,7 @@ export declare const BIBO_BASE: string;
 export declare const LRMOO_BASE: string;
 export declare const CRM_BASE: string;
 export declare const CRMDIG_BASE: string;
+export declare const DBPEDIA_BASE: string;
 export declare const DC_BASE: string;
 export declare const DCTERMS_BASE: string;
 export declare const FOAF_BASE: string;
@@ -11,6 +12,7 @@ export declare const DATA_IREMUS_ID_BASE: string;
 export declare const IREMUS_RESOURCE_BASE: string;
 export declare const IREMUS_NS_BASE: string;
 export declare const IREMUS_GRAPH_BASE: string;
+export declare const MIMO_BASE: string;
 export declare const MUSRAD30_BASE: string;
 export declare const OWL_BASE: string;
 export declare const RDF_BASE: string;
@@ -24,4 +26,6 @@ export declare class PrefixedUri {
     localPart: string;
     constructor(prefix: string, localPart: string);
 }
-export declare const getPrefixedUri: (uri: string) => PrefixedUri;
+export declare function makePrefixedUri(uri: string): PrefixedUri;
+export declare function getGraphName(uri: string): string;
+export declare function sortBindings(a: Record<string, any>, b: Record<string, any>): number;

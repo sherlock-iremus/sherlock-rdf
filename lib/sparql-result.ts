@@ -1,4 +1,5 @@
 import { Languages, Type } from "./rdf-literal"
+import { PrefixedUri } from "./rdf-prefixes"
 
 export class SparqlQueryResultObject {
     head: SparqlQueryResultObject_Head
@@ -31,13 +32,15 @@ export class SparqlQueryResultObject_Binding {
 }
 
 export class SparqlQueryResultObject_Variable {
-    lang: Languages
+    'xml:lang': Languages
     type: Type
     value: string
+    prefixedUri: PrefixedUri
 
     constructor() {
-        this.lang = Languages.NONE
+        this["xml:lang"] = Languages.NONE
         this.type = Type.uri
         this.value = ''
+        this.prefixedUri = new PrefixedUri('', '')
     }
 }
