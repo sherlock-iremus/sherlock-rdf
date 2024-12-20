@@ -1,7 +1,7 @@
 var I = Object.defineProperty;
 var C = (t, e, r) => e in t ? I(t, e, { enumerable: !0, configurable: !0, writable: !0, value: r }) : t[e] = r;
 var s = (t, e, r) => C(t, typeof e != "symbol" ? e + "" : e, r);
-const M = "http://purl.org/ontology/bibo/", R = "http://www.cidoc-crm.org/lrmoo/", p = "http://www.cidoc-crm.org/cidoc-crm/", S = "http://www.ics.forth.gr/isl/CRMdig/", y = "http://dbpedia.org/resource/", A = "http://purl.org/dc/elements/1.1/", f = "http://purl.org/dc/terms/", o = "http://xmlns.com/foaf/0.1/", N = "http://data-iremus.huma-num.fr/ns/hemef#", V = "http://data-iremus.huma-num.fr/files/", n = "http://data-iremus.huma-num.fr/id/", x = "http://data-iremus.huma-num.fr/id/", P = "http://data-iremus.huma-num.fr/ns/", F = "http://data-iremus.huma-num.fr/graph/", U = "http://www.mimo-db.eu/", j = "http://data-iremus.huma-num.fr/ns/musrad30#", q = "http://www.w3.org/2002/07/owl#", O = "http://www.w3.org/1999/02/22-rdf-syntax-ns#", g = "http://www.w3.org/2000/01/rdf-schema#", G = "http://schema.org/", b = "http://www.w3.org/2004/02/skos/core#", l = /* @__PURE__ */ new Map([
+const M = "http://purl.org/ontology/bibo/", w = "http://iflastandards.info/ns/lrm/lrmoo/", p = "http://www.cidoc-crm.org/cidoc-crm/", S = "http://www.ics.forth.gr/isl/CRMdig/", y = "http://dbpedia.org/resource/", A = "http://purl.org/dc/elements/1.1/", f = "http://purl.org/dc/terms/", o = "http://xmlns.com/foaf/0.1/", N = "http://data-iremus.huma-num.fr/ns/hemef#", V = "http://data-iremus.huma-num.fr/files/", n = "http://data-iremus.huma-num.fr/id/", x = "http://data-iremus.huma-num.fr/id/", P = "http://data-iremus.huma-num.fr/ns/", F = "http://data-iremus.huma-num.fr/graph/", U = "http://www.mimo-db.eu/", j = "http://data-iremus.huma-num.fr/ns/musrad30#", q = "http://www.w3.org/2002/07/owl#", O = "http://www.w3.org/1999/02/22-rdf-syntax-ns#", g = "http://www.w3.org/2000/01/rdf-schema#", G = "http://schema.org/", b = "http://www.w3.org/2004/02/skos/core#", l = /* @__PURE__ */ new Map([
   [p, "crm"],
   [S, "crmdig"],
   [M, "bibo"],
@@ -13,7 +13,7 @@ const M = "http://purl.org/ontology/bibo/", R = "http://www.cidoc-crm.org/lrmoo/
   [F, "iremus-graph"],
   [x, "iremus-data"],
   [P, "iremus-ns"],
-  [R, "lrmoo"],
+  [w, "lrmoo"],
   [U, "mimo"],
   [j, "musrad30"],
   [q, "owl"],
@@ -44,7 +44,7 @@ function T(t, e) {
   return t.p.value < e.p.value ? -1 : t.p.value > e.p.value ? 1 : 0;
 }
 function X(t) {
-  return t.startsWith(p) || t.startsWith(S) || t.startsWith(R) ? t.split("/").slice(-1)[0].split("_")[0] : null;
+  return t.startsWith(p) || t.startsWith(S) || t.startsWith(w) ? t.split("/").slice(-1)[0].split("_")[0] : null;
 }
 class Q {
   constructor(e = "") {
@@ -229,7 +229,7 @@ const c = class c extends E {
   }
 };
 s(c, "void", new c("", "", u.void));
-let w = c;
+let R = c;
 var v = /* @__PURE__ */ ((t) => (t.literal = "literal", t.uri = "uri", t))(v || {}), H = /* @__PURE__ */ ((t) => (t.de = "🇩🇪", t.en = "🇬🇧", t.es = "🇪🇸", t.fr = "🇫🇷", t.it = "🇮🇹", t))(H || {}), B = /* @__PURE__ */ ((t) => (t.NONE = "", t.DE = "de", t.EL = "el", t.EN = "en", t.ES = "es", t.FR = "fr", t.IT = "it", t.PT = "pt", t.RU = "ru", t.ZH = "zh", t))(B || {});
 const st = [
   "fr",
@@ -346,7 +346,7 @@ export {
   x as IREMUS_RESOURCE_BASE,
   $ as LABEL_PREDICATES,
   st as LANGS_ORDER,
-  R as LRMOO_BASE,
+  w as LRMOO_BASE,
   B as Languages,
   tt as Literal,
   U as MIMO_BASE,
@@ -355,7 +355,7 @@ export {
   q as OWL_BASE,
   u as Ontology,
   h as OntologyClass,
-  w as OntologyProperty,
+  R as OntologyProperty,
   E as OntologyStuff,
   Z as PRIORITIZED_RDF_PREFIXES,
   m as PrefixedUri,
