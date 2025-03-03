@@ -1,1 +1,0 @@
-pnpm link --global
