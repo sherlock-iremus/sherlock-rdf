@@ -1,27 +1,27 @@
-var I = Object.defineProperty;
-var C = (t, e, r) => e in t ? I(t, e, { enumerable: !0, configurable: !0, writable: !0, value: r }) : t[e] = r;
-var s = (t, e, r) => C(t, typeof e != "symbol" ? e + "" : e, r);
-const M = "http://purl.org/ontology/bibo/", w = "http://iflastandards.info/ns/lrm/lrmoo/", p = "http://www.cidoc-crm.org/cidoc-crm/", S = "http://www.ics.forth.gr/isl/CRMdig/", y = "http://dbpedia.org/resource/", A = "http://purl.org/dc/elements/1.1/", f = "http://purl.org/dc/terms/", o = "http://xmlns.com/foaf/0.1/", N = "http://data-iremus.huma-num.fr/ns/hemef#", V = "http://data-iremus.huma-num.fr/files/", n = "http://data-iremus.huma-num.fr/id/", x = "http://data-iremus.huma-num.fr/id/", P = "http://data-iremus.huma-num.fr/ns/", F = "http://data-iremus.huma-num.fr/graph/", U = "http://www.mimo-db.eu/", j = "http://data-iremus.huma-num.fr/ns/musrad30#", q = "http://www.w3.org/2002/07/owl#", O = "http://www.w3.org/1999/02/22-rdf-syntax-ns#", g = "http://www.w3.org/2000/01/rdf-schema#", G = "http://schema.org/", b = "http://www.w3.org/2004/02/skos/core#", l = /* @__PURE__ */ new Map([
+var C = Object.defineProperty;
+var M = (t, e, r) => e in t ? C(t, e, { enumerable: !0, configurable: !0, writable: !0, value: r }) : t[e] = r;
+var s = (t, e, r) => M(t, typeof e != "symbol" ? e + "" : e, r);
+const y = "http://purl.org/ontology/bibo/", w = "http://iflastandards.info/ns/lrm/lrmoo/", p = "http://www.cidoc-crm.org/cidoc-crm/", O = "http://www.ics.forth.gr/isl/CRMdig/", N = "http://dbpedia.org/resource/", A = "http://purl.org/dc/elements/1.1/", g = "http://purl.org/dc/terms/", o = "http://xmlns.com/foaf/0.1/", x = "http://data-iremus.huma-num.fr/ns/hemef#", V = "http://data-iremus.huma-num.fr/files/", n = "http://data-iremus.huma-num.fr/id/", f = "http://data-iremus.huma-num.fr/id/", F = "http://data-iremus.huma-num.fr/ns/", P = "http://data-iremus.huma-num.fr/graph/", U = "http://www.mimo-db.eu/", j = "http://data-iremus.huma-num.fr/ns/musrad30#", G = "http://www.w3.org/2002/07/owl#", I = "http://www.w3.org/1999/02/22-rdf-syntax-ns#", b = "http://www.w3.org/2000/01/rdf-schema#", q = "http://schema.org/", E = "http://www.w3.org/2004/02/skos/core#", Z = f + "f005e36a-4690-4c83-9791-2927f5f823e0", z = f + "f284ed72-139d-4662-9dce-208bf493a45d", J = f + "574ffe9e-525c-42f2-8188-329ba3c7231d", l = /* @__PURE__ */ new Map([
   [p, "crm"],
-  [S, "crmdig"],
-  [M, "bibo"],
-  [y, "dbpedia"],
+  [O, "crmdig"],
+  [y, "bibo"],
+  [N, "dbpedia"],
   [A, "dc"],
-  [f, "dcterms"],
+  [g, "dcterms"],
   [o, "foaf"],
-  [N, "hemef"],
-  [F, "iremus-graph"],
-  [x, "iremus-data"],
-  [P, "iremus-ns"],
+  [x, "hemef"],
+  [P, "iremus-graph"],
+  [f, "iremus-data"],
+  [F, "iremus-ns"],
   [w, "lrmoo"],
   [U, "mimo"],
   [j, "musrad30"],
-  [q, "owl"],
-  [O, "rdf"],
-  [g, "rdfs"],
-  [G, "schema"],
-  [b, "skos"]
-]), Z = Object.entries(l).sort(
+  [G, "owl"],
+  [I, "rdf"],
+  [b, "rdfs"],
+  [q, "schema"],
+  [E, "skos"]
+]), T = Object.entries(l).sort(
   (t, e) => t[0].length < e[0].length ? 1 : -1
 );
 class m {
@@ -30,21 +30,24 @@ class m {
     s(this, "localPart");
     this.prefix = e, this.localPart = r;
   }
+  toString() {
+    return this.prefix + ":" + this.localPart;
+  }
 }
-function z(t) {
+function X(t) {
   for (const e of l.keys())
     if (t.startsWith(e))
       return new m(l.get(e), t.replace(e, ""));
   return new m("", t);
 }
-function J(t) {
+function tt(t) {
   return t.replace("http://data-iremus.huma-num.fr/graph/", "");
 }
-function T(t, e) {
+function et(t, e) {
   return t.p.value < e.p.value ? -1 : t.p.value > e.p.value ? 1 : 0;
 }
-function X(t) {
-  return t.startsWith(p) || t.startsWith(S) || t.startsWith(w) ? t.split("/").slice(-1)[0].split("_")[0] : null;
+function rt(t) {
+  return t.startsWith(p) || t.startsWith(O) || t.startsWith(w) ? t.split("/").slice(-1)[0].split("_")[0] : null;
 }
 class Q {
   constructor(e = "") {
@@ -66,7 +69,7 @@ class Q {
     return this._pog;
   }
 }
-class tt {
+class st {
   constructor(e, r, i) {
     s(this, "_lang");
     s(this, "_value");
@@ -84,7 +87,7 @@ class tt {
     return this._value;
   }
 }
-class et {
+class it {
   constructor(e) {
     s(this, "_uri");
     this._uri = e;
@@ -93,7 +96,7 @@ class et {
     return this._uri;
   }
 }
-class rt {
+class nt {
   constructor(e, r, i = void 0) {
     s(this, "_literal");
     s(this, "_resource");
@@ -146,7 +149,7 @@ const d = class d {
 };
 s(d, "void", new d(""));
 let u = d;
-class E extends Q {
+class R extends Q {
   constructor(r, i, a) {
     super(r);
     s(this, "_comment");
@@ -184,8 +187,8 @@ class E extends Q {
     return this._label.get(r);
   }
 }
-s(E, "label", "");
-const _ = class _ extends E {
+s(R, "label", "");
+const _ = class _ extends R {
   constructor(r, i, a) {
     super(r, i, a);
     s(this, "_subClassOf");
@@ -197,7 +200,7 @@ const _ = class _ extends E {
 };
 s(_, "void", new _("", "", u.void));
 let h = _;
-const c = class c extends E {
+const c = class c extends R {
   constructor(r, i, a) {
     super(r, i, a);
     s(this, "_domain", h.void);
@@ -229,33 +232,33 @@ const c = class c extends E {
   }
 };
 s(c, "void", new c("", "", u.void));
-let R = c;
-var v = /* @__PURE__ */ ((t) => (t.literal = "literal", t.uri = "uri", t))(v || {}), H = /* @__PURE__ */ ((t) => (t.de = "🇩🇪", t.en = "🇬🇧", t.es = "🇪🇸", t.fr = "🇫🇷", t.it = "🇮🇹", t))(H || {}), B = /* @__PURE__ */ ((t) => (t.NONE = "", t.DE = "de", t.EL = "el", t.EN = "en", t.ES = "es", t.FR = "fr", t.IT = "it", t.PT = "pt", t.RU = "ru", t.ZH = "zh", t))(B || {});
-const st = [
+let S = c;
+var v = /* @__PURE__ */ ((t) => (t.literal = "literal", t.uri = "uri", t))(v || {}), D = /* @__PURE__ */ ((t) => (t.de = "🇩🇪", t.en = "🇬🇧", t.es = "🇪🇸", t.fr = "🇫🇷", t.it = "🇮🇹", t))(D || {}), B = /* @__PURE__ */ ((t) => (t.NONE = "", t.DE = "de", t.EL = "el", t.EN = "en", t.ES = "es", t.FR = "fr", t.IT = "it", t.PT = "pt", t.RU = "ru", t.ZH = "zh", t))(B || {});
+const at = [
   "fr",
   "en",
   "it",
   "de"
   /* DE */
 ];
-var Y = /* @__PURE__ */ ((t) => (t.anyURI = "anyURI", t.base64Binary = "base64Binary", t.boolean = "boolean", t.date = "date", t.dateTime = "dateTime", t.decimal = "decimal", t.double = "double", t.duration = "duration", t.float = "float", t.hexBinary = "hexBinary", t.gDay = "gDay", t.gMonth = "gMonth", t.gMonthDay = "gMonthDay", t.gYear = "gYear", t.gYearMonth = "gYearMonth", t.NOTATION = "NOTATION", t.QName = "QName", t.string = "string", t.time = "time", t))(Y || {});
-const $ = [
+var H = /* @__PURE__ */ ((t) => (t.anyURI = "anyURI", t.base64Binary = "base64Binary", t.boolean = "boolean", t.date = "date", t.dateTime = "dateTime", t.decimal = "decimal", t.double = "double", t.duration = "duration", t.float = "float", t.hexBinary = "hexBinary", t.gDay = "gDay", t.gMonth = "gMonth", t.gMonthDay = "gMonthDay", t.gYear = "gYear", t.gYearMonth = "gYearMonth", t.NOTATION = "NOTATION", t.QName = "QName", t.string = "string", t.time = "time", t))(H || {});
+const Y = [
   p + "P1_is_identified_by",
   A + "title",
-  f + "title",
+  g + "title",
   o + "familyName",
   o + "firstName",
   o + "givenName",
   o + "name",
-  g + "label",
-  b + "prefLabel"
-], it = [
-  ...$,
-  O + "type",
-  f + "creator",
-  b + "inScheme",
-  g + "subClassOf"
-], nt = {
+  b + "label",
+  E + "prefLabel"
+], ot = [
+  ...Y,
+  I + "type",
+  g + "creator",
+  E + "inScheme",
+  b + "subClassOf"
+], ct = {
   selection: n + "9d0388cb-a178-46b2-b047-b5a98f7bdf0b",
   analyticalEntity: n + "6d72746a-9f28-4739-8786-c6415d53c56d",
   score: n + "bf9dce29-8123-4e8e-b24d-0c7f134bbc8e",
@@ -268,19 +271,19 @@ const $ = [
   fondamentaleIdentification: n + "003559fc-f033-4fc3-9c05-0d5f283123ed",
   orcidGeneratedName: n + "73ea8d74-3526-4f6a-8830-dd369795650d"
 };
-function k(t) {
+function $(t) {
   const e = t.find((r) => r.label);
   return e ? e.label.value : "";
 }
-function at(t, e) {
-  return `${k(e)}   ${D(t)}`;
+function lt(t, e) {
+  return `${$(e)}   ${k(t)}`;
 }
-function D(t) {
+function k(t) {
   for (const [e, r] of Object.entries(l))
     t = t.replace(e, r !== "" ? r + ":" : "");
   return t;
 }
-const ot = async (t, e = "https://data-iremus.huma-num.fr/sparql") => {
+const ut = async (t, e = "https://data-iremus.huma-num.fr/sparql") => {
   const i = await (await fetch(e, {
     method: "POST",
     headers: {
@@ -293,33 +296,33 @@ const ot = async (t, e = "https://data-iremus.huma-num.fr/sparql") => {
   })).text();
   return JSON.parse(i);
 };
-function ct(t, e) {
+function ht(t, e) {
   for (const r in e)
     t = t.replaceAll("${" + r + "}", e[r]);
   return t;
 }
-class lt {
+class dt {
   constructor() {
     s(this, "head");
     s(this, "results");
-    this.head = new W(), this.results = new L();
+    this.head = new L(), this.results = new W();
   }
 }
-class W {
+class L {
   constructor() {
     s(this, "vars");
     this.vars = [];
   }
 }
-class L {
+class W {
   constructor() {
     s(this, "bindings");
     this.bindings = [];
   }
 }
-class ut {
+class _t {
 }
-class ht {
+class ft {
   constructor() {
     s(this, "xml:lang");
     s(this, "type");
@@ -329,58 +332,61 @@ class ht {
   }
 }
 export {
-  M as BIBO_BASE,
-  S as CRMDIG_BASE,
+  y as BIBO_BASE,
+  O as CRMDIG_BASE,
   p as CRM_BASE,
-  H as CountryFlags,
+  D as CountryFlags,
   V as DATA_IREMUS_FILES_BASE,
   n as DATA_IREMUS_ID_BASE,
-  y as DBPEDIA_BASE,
-  f as DCTERMS_BASE,
+  N as DBPEDIA_BASE,
+  g as DCTERMS_BASE,
   A as DC_BASE,
+  J as E55_BUSINESS_ID,
+  z as E55_FORGE_FILE_URI,
+  Z as E55_TEI_FILE_URI,
   o as FOAF_BASE,
-  et as Graph,
-  N as HEMEF_BASE,
-  F as IREMUS_GRAPH_BASE,
-  P as IREMUS_NS_BASE,
-  x as IREMUS_RESOURCE_BASE,
-  $ as LABEL_PREDICATES,
-  st as LANGS_ORDER,
+  it as Graph,
+  x as HEMEF_BASE,
+  P as IREMUS_GRAPH_BASE,
+  F as IREMUS_NS_BASE,
+  f as IREMUS_RESOURCE_BASE,
+  Y as LABEL_PREDICATES,
+  at as LANGS_ORDER,
   w as LRMOO_BASE,
   B as Languages,
-  tt as Literal,
+  st as Literal,
   U as MIMO_BASE,
   j as MUSRAD30_BASE,
-  rt as OG,
-  q as OWL_BASE,
+  nt as OG,
+  G as OWL_BASE,
   u as Ontology,
   h as OntologyClass,
-  R as OntologyProperty,
-  E as OntologyStuff,
-  Z as PRIORITIZED_RDF_PREFIXES,
+  S as OntologyProperty,
+  R as OntologyStuff,
+  T as PRIORITIZED_RDF_PREFIXES,
   m as PrefixedUri,
-  g as RDFS_BASE,
-  O as RDF_BASE,
+  b as RDFS_BASE,
+  I as RDF_BASE,
   l as RDF_PREFIXES,
-  it as RESOURCE_IDENTITY_PREDICATES,
+  ot as RESOURCE_IDENTITY_PREDICATES,
   Q as Resource,
-  G as SCHEMAORG_BASE,
-  nt as SHERLOCK_TYPE,
-  b as SKOS_BASE,
-  lt as SparqlQueryResultObject,
-  ut as SparqlQueryResultObject_Binding,
-  W as SparqlQueryResultObject_Head,
-  L as SparqlQueryResultObject_Results,
-  ht as SparqlQueryResultObject_Variable,
+  q as SCHEMAORG_BASE,
+  ct as SHERLOCK_TYPE,
+  E as SKOS_BASE,
+  dt as SparqlQueryResultObject,
+  _t as SparqlQueryResultObject_Binding,
+  L as SparqlQueryResultObject_Head,
+  W as SparqlQueryResultObject_Results,
+  ft as SparqlQueryResultObject_Variable,
   v as Type,
-  Y as XSDTypes,
-  ct as bind,
-  k as computeIdentity,
-  at as computeResourceLabel,
-  D as formatUri,
-  X as getCode,
-  J as getGraphName,
-  z as makePrefixedUri,
-  ot as querySparqlEndpoint,
-  T as sortBindings
+  H as XSDTypes,
+  ht as bind,
+  $ as computeIdentity,
+  lt as computeResourceLabel,
+  k as formatUri,
+  rt as getCode,
+  tt as getGraphName,
+  X as makePrefixedUri,
+  ut as querySparqlEndpoint,
+  et as sortBindings
 };

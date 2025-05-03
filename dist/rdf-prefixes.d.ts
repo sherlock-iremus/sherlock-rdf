@@ -19,12 +19,16 @@ export declare const RDF_BASE: string;
 export declare const RDFS_BASE: string;
 export declare const SCHEMAORG_BASE: string;
 export declare const SKOS_BASE: string;
+export declare const E55_TEI_FILE_URI: string;
+export declare const E55_FORGE_FILE_URI: string;
+export declare const E55_BUSINESS_ID: string;
 export declare const RDF_PREFIXES: Map<string, string>;
 export declare const PRIORITIZED_RDF_PREFIXES: [string, any][];
 export declare class PrefixedUri {
     prefix: string;
     localPart: string;
     constructor(prefix: string, localPart: string);
+    toString(): string;
 }
 export declare function makePrefixedUri(uri: string): PrefixedUri;
 export declare function getGraphName(uri: string): string;
