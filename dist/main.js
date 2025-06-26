@@ -1,66 +1,62 @@
-var C = Object.defineProperty;
-var M = (t, e, r) => e in t ? C(t, e, { enumerable: !0, configurable: !0, writable: !0, value: r }) : t[e] = r;
-var s = (t, e, r) => M(t, typeof e != "symbol" ? e + "" : e, r);
-const y = "http://purl.org/ontology/bibo/", w = "http://iflastandards.info/ns/lrm/lrmoo/", p = "http://www.cidoc-crm.org/cidoc-crm/", O = "http://www.ics.forth.gr/isl/CRMdig/", N = "http://dbpedia.org/resource/", A = "http://purl.org/dc/elements/1.1/", g = "http://purl.org/dc/terms/", o = "http://xmlns.com/foaf/0.1/", x = "http://data-iremus.huma-num.fr/ns/hemef#", V = "http://data-iremus.huma-num.fr/files/", n = "http://data-iremus.huma-num.fr/id/", f = "http://data-iremus.huma-num.fr/id/", F = "http://data-iremus.huma-num.fr/ns/", P = "http://data-iremus.huma-num.fr/graph/", U = "http://www.mimo-db.eu/", j = "http://data-iremus.huma-num.fr/ns/musrad30#", G = "http://www.w3.org/2002/07/owl#", I = "http://www.w3.org/1999/02/22-rdf-syntax-ns#", b = "http://www.w3.org/2000/01/rdf-schema#", q = "http://schema.org/", E = "http://www.w3.org/2004/02/skos/core#", Z = f + "f005e36a-4690-4c83-9791-2927f5f823e0", z = f + "f284ed72-139d-4662-9dce-208bf493a45d", J = f + "574ffe9e-525c-42f2-8188-329ba3c7231d", l = /* @__PURE__ */ new Map([
-  [p, "crm"],
-  [O, "crmdig"],
-  [y, "bibo"],
-  [N, "dbpedia"],
-  [A, "dc"],
-  [g, "dcterms"],
-  [o, "foaf"],
-  [x, "hemef"],
-  [P, "iremus-graph"],
-  [f, "iremus-data"],
-  [F, "iremus-ns"],
-  [w, "lrmoo"],
-  [U, "mimo"],
-  [j, "musrad30"],
-  [G, "owl"],
-  [I, "rdf"],
-  [b, "rdfs"],
-  [q, "schema"],
-  [E, "skos"]
-]), T = Object.entries(l).sort(
+const O = "http://purl.org/ontology/bibo/", p = "http://iflastandards.info/ns/lrm/lrmoo/", d = "http://www.cidoc-crm.org/cidoc-crm/", g = "http://www.ics.forth.gr/isl/CRMdig/", A = "http://dbpedia.org/resource/", b = "http://purl.org/dc/elements/1.1/", _ = "http://purl.org/dc/terms/", n = "http://xmlns.com/foaf/0.1/", I = "http://data-iremus.huma-num.fr/ns/hemef#", H = "http://data-iremus.huma-num.fr/files/", i = "http://data-iremus.huma-num.fr/id/", c = "http://data-iremus.huma-num.fr/id/", v = "http://data-iremus.huma-num.fr/ns/", y = "http://data-iremus.huma-num.fr/graph/", B = "http://www.mimo-db.eu/", C = "http://data-iremus.huma-num.fr/ns/musrad30#", M = "http://www.w3.org/2002/07/owl#", E = "http://www.w3.org/1999/02/22-rdf-syntax-ns#", f = "http://www.w3.org/2000/01/rdf-schema#", N = "http://schema.org/", m = "http://www.w3.org/2004/02/skos/core#", Y = c + "f005e36a-4690-4c83-9791-2927f5f823e0", $ = c + "f284ed72-139d-4662-9dce-208bf493a45d", k = c + "574ffe9e-525c-42f2-8188-329ba3c7231d", o = /* @__PURE__ */ new Map([
+  [d, "crm"],
+  [g, "crmdig"],
+  [O, "bibo"],
+  [A, "dbpedia"],
+  [b, "dc"],
+  [_, "dcterms"],
+  [n, "foaf"],
+  [I, "hemef"],
+  [y, "iremus-graph"],
+  [c, "iremus-data"],
+  [v, "iremus-ns"],
+  [p, "lrmoo"],
+  [B, "mimo"],
+  [C, "musrad30"],
+  [M, "owl"],
+  [E, "rdf"],
+  [f, "rdfs"],
+  [N, "schema"],
+  [m, "skos"]
+]), L = Object.entries(o).sort(
   (t, e) => t[0].length < e[0].length ? 1 : -1
 );
-class m {
+class u {
+  prefix;
+  localPart;
   constructor(e, r) {
-    s(this, "prefix");
-    s(this, "localPart");
     this.prefix = e, this.localPart = r;
   }
   toString() {
     return this.prefix + ":" + this.localPart;
   }
 }
-function X(t) {
-  for (const e of l.keys())
+function W(t) {
+  for (const e of o.keys())
     if (t.startsWith(e))
-      return new m(l.get(e), t.replace(e, ""));
-  return new m("", t);
+      return new u(o.get(e), t.replace(e, ""));
+  return new u("", t);
 }
-function tt(t) {
+function K(t) {
   return t.replace("http://data-iremus.huma-num.fr/graph/", "");
 }
-function et(t, e) {
+function V(t, e) {
   return t.p.value < e.p.value ? -1 : t.p.value > e.p.value ? 1 : 0;
 }
-function rt(t) {
-  return t.startsWith(p) || t.startsWith(O) || t.startsWith(w) ? t.split("/").slice(-1)[0].split("_")[0] : null;
+function Z(t) {
+  return t.startsWith(d) || t.startsWith(g) || t.startsWith(p) ? t.split("/").slice(-1)[0].split("_")[0] : null;
 }
-class Q {
+class P {
+  _pog;
+  _uri;
   constructor(e = "") {
-    s(this, "_pog");
-    s(this, "_uri");
     this._uri = e, this._pog = /* @__PURE__ */ new Map();
   }
   getValues(e) {
     return this._pog.get(e);
   }
   addPOG(e, r) {
-    var i;
-    this._pog.has(e) ? (i = this._pog.get(e)) == null || i.push(r) : this._pog.set(e, [r]);
+    this._pog.has(e) ? this._pog.get(e)?.push(r) : this._pog.set(e, [r]);
   }
   get uri() {
     return this._uri;
@@ -69,13 +65,12 @@ class Q {
     return this._pog;
   }
 }
-class st {
-  constructor(e, r, i) {
-    s(this, "_lang");
-    s(this, "_value");
-    s(this, "_type");
-    s(this, "toString", () => `${this._value}@${this._lang}`);
-    this._lang = e, this._type = r, this._value = i;
+class z {
+  _lang;
+  _value;
+  _type;
+  constructor(e, r, s) {
+    this._lang = e, this._type = r, this._value = s;
   }
   get lang() {
     return this._lang;
@@ -86,22 +81,23 @@ class st {
   get value() {
     return this._value;
   }
+  toString = () => `${this._value}@${this._lang}`;
 }
-class it {
+class J {
+  _uri;
   constructor(e) {
-    s(this, "_uri");
     this._uri = e;
   }
   get uri() {
     return this._uri;
   }
 }
-class nt {
-  constructor(e, r, i = void 0) {
-    s(this, "_literal");
-    s(this, "_resource");
-    s(this, "_graph");
-    this._literal = e, this._resource = r, this._graph = i;
+class T {
+  _literal;
+  _resource;
+  _graph;
+  constructor(e, r, s = void 0) {
+    this._literal = e, this._resource = r, this._graph = s;
   }
   get literal() {
     return this._literal;
@@ -113,13 +109,14 @@ class nt {
     return this._graph;
   }
 }
-const d = class d {
+class l {
+  static void = new l("");
+  _classesRegistry = /* @__PURE__ */ new Map();
+  _name;
+  _classes;
+  _properties;
+  _propertiesRegistry = /* @__PURE__ */ new Map();
   constructor(e) {
-    s(this, "_classesRegistry", /* @__PURE__ */ new Map());
-    s(this, "_name");
-    s(this, "_classes");
-    s(this, "_properties");
-    s(this, "_propertiesRegistry", /* @__PURE__ */ new Map());
     this._name = e, this._classes = [], this._properties = [];
   }
   addClass(e) {
@@ -146,33 +143,31 @@ const d = class d {
   sortAll() {
     this._classes = this._classes.sort((e, r) => e.intCodeForSorting - r.intCodeForSorting), this._properties = this._properties.sort((e, r) => e.intCodeForSorting - r.intCodeForSorting);
   }
-};
-s(d, "void", new d(""));
-let u = d;
-class R extends Q {
-  constructor(r, i, a) {
-    super(r);
-    s(this, "_comment");
-    s(this, "_intCodeForSorting");
-    s(this, "_label");
-    s(this, "_name");
-    s(this, "_ontology");
-    this._comment = /* @__PURE__ */ new Map(), this._intCodeForSorting = -1, this._label = /* @__PURE__ */ new Map(), this._name = i, this._ontology = a;
+}
+class R extends P {
+  static label = "";
+  _comment;
+  _intCodeForSorting;
+  _label;
+  _name;
+  _ontology;
+  constructor(e, r, s) {
+    super(e), this._comment = /* @__PURE__ */ new Map(), this._intCodeForSorting = -1, this._label = /* @__PURE__ */ new Map(), this._name = r, this._ontology = s;
   }
   get comment() {
     return this._comment;
   }
-  set comment(r) {
-    this._comment = r;
+  set comment(e) {
+    this._comment = e;
   }
   get intCodeForSorting() {
     return this._intCodeForSorting;
   }
-  set intCodeForSorting(r) {
-    this._intCodeForSorting = r;
+  set intCodeForSorting(e) {
+    this._intCodeForSorting = e;
   }
-  set label(r) {
-    this._label = r;
+  set label(e) {
+    this._label = e;
   }
   get name() {
     return this._name;
@@ -180,111 +175,106 @@ class R extends Q {
   get ontology() {
     return this._ontology;
   }
-  getComment(r) {
-    return this._comment.get(r);
+  getComment(e) {
+    return this._comment.get(e);
   }
-  getLabel(r) {
-    return this._label.get(r);
+  getLabel(e) {
+    return this._label.get(e);
   }
 }
-s(R, "label", "");
-const _ = class _ extends R {
-  constructor(r, i, a) {
-    super(r, i, a);
-    s(this, "_subClassOf");
-    this._subClassOf = new Array();
+class a extends R {
+  static void = new a("", "", l.void);
+  _subClassOf;
+  constructor(e, r, s) {
+    super(e, r, s), this._subClassOf = new Array();
   }
-  addSubClassOf(r) {
-    this._subClassOf.push(r);
+  addSubClassOf(e) {
+    this._subClassOf.push(e);
   }
-};
-s(_, "void", new _("", "", u.void));
-let h = _;
-const c = class c extends R {
-  constructor(r, i, a) {
-    super(r, i, a);
-    s(this, "_domain", h.void);
-    s(this, "_inverseOf", c.void);
-    s(this, "_range", h.void);
-    s(this, "_subPropertyOf");
-    this._subPropertyOf = new Array();
+}
+class h extends R {
+  static void = new h("", "", l.void);
+  _domain = a.void;
+  _inverseOf = h.void;
+  _range = a.void;
+  _subPropertyOf;
+  constructor(e, r, s) {
+    super(e, r, s), this._subPropertyOf = new Array();
   }
   get domain() {
     return this._domain;
   }
-  set domain(r) {
-    this._domain = r;
+  set domain(e) {
+    this._domain = e;
   }
   get inverseOf() {
     return this._inverseOf;
   }
-  set inverseOf(r) {
-    this._inverseOf = r;
+  set inverseOf(e) {
+    this._inverseOf = e;
   }
   get range() {
     return this._range;
   }
-  set range(r) {
-    this._range = r;
+  set range(e) {
+    this._range = e;
   }
-  addSubPropertyOf(r) {
-    this._subPropertyOf.push(r);
+  addSubPropertyOf(e) {
+    this._subPropertyOf.push(e);
   }
-};
-s(c, "void", new c("", "", u.void));
-let S = c;
-var v = /* @__PURE__ */ ((t) => (t.literal = "literal", t.uri = "uri", t))(v || {}), D = /* @__PURE__ */ ((t) => (t.de = "🇩🇪", t.en = "🇬🇧", t.es = "🇪🇸", t.fr = "🇫🇷", t.it = "🇮🇹", t))(D || {}), B = /* @__PURE__ */ ((t) => (t.NONE = "", t.DE = "de", t.EL = "el", t.EN = "en", t.ES = "es", t.FR = "fr", t.IT = "it", t.PT = "pt", t.RU = "ru", t.ZH = "zh", t))(B || {});
-const at = [
+}
+var S = /* @__PURE__ */ ((t) => (t.literal = "literal", t.uri = "uri", t))(S || {}), x = /* @__PURE__ */ ((t) => (t.de = "🇩🇪", t.en = "🇬🇧", t.es = "🇪🇸", t.fr = "🇫🇷", t.it = "🇮🇹", t))(x || {}), w = /* @__PURE__ */ ((t) => (t.NONE = "", t.DE = "de", t.EL = "el", t.EN = "en", t.ES = "es", t.FR = "fr", t.IT = "it", t.PT = "pt", t.RU = "ru", t.ZH = "zh", t))(w || {});
+const X = [
   "fr",
   "en",
   "it",
   "de"
   /* DE */
 ];
-var H = /* @__PURE__ */ ((t) => (t.anyURI = "anyURI", t.base64Binary = "base64Binary", t.boolean = "boolean", t.date = "date", t.dateTime = "dateTime", t.decimal = "decimal", t.double = "double", t.duration = "duration", t.float = "float", t.hexBinary = "hexBinary", t.gDay = "gDay", t.gMonth = "gMonth", t.gMonthDay = "gMonthDay", t.gYear = "gYear", t.gYearMonth = "gYearMonth", t.NOTATION = "NOTATION", t.QName = "QName", t.string = "string", t.time = "time", t))(H || {});
-const Y = [
-  p + "P1_is_identified_by",
-  A + "title",
-  g + "title",
-  o + "familyName",
-  o + "firstName",
-  o + "givenName",
-  o + "name",
-  b + "label",
-  E + "prefLabel"
-], ot = [
-  ...Y,
-  I + "type",
-  g + "creator",
-  E + "inScheme",
-  b + "subClassOf"
-], ct = {
-  selection: n + "9d0388cb-a178-46b2-b047-b5a98f7bdf0b",
-  analyticalEntity: n + "6d72746a-9f28-4739-8786-c6415d53c56d",
-  score: n + "bf9dce29-8123-4e8e-b24d-0c7f134bbc8e",
-  software: n + "29b00e39-75da-4945-b6c4-a0ca00f96f68",
-  hexColorCode: n + "5f1bb74f-6ea0-4073-8b68-086f98454f1c",
-  emoji: n + "04242f64-fbb3-4b5b-bb2e-3ddd59eeea18",
-  orcidId: n + "d7ef2583-ff31-4913-9ed3-bc3a1c664b21",
-  note: n + "d2a536eb-4a95-484f-b13d-f597ac8ea2fd",
-  verticality: n + "90a2ae1e-0fbc-4357-ac8a-b4b3f2a06e86",
-  fondamentaleIdentification: n + "003559fc-f033-4fc3-9c05-0d5f283123ed",
-  orcidGeneratedName: n + "73ea8d74-3526-4f6a-8830-dd369795650d"
+var F = /* @__PURE__ */ ((t) => (t.anyURI = "anyURI", t.base64Binary = "base64Binary", t.boolean = "boolean", t.date = "date", t.dateTime = "dateTime", t.decimal = "decimal", t.double = "double", t.duration = "duration", t.float = "float", t.hexBinary = "hexBinary", t.gDay = "gDay", t.gMonth = "gMonth", t.gMonthDay = "gMonthDay", t.gYear = "gYear", t.gYearMonth = "gYearMonth", t.NOTATION = "NOTATION", t.QName = "QName", t.string = "string", t.time = "time", t))(F || {});
+const U = [
+  d + "P1_is_identified_by",
+  b + "title",
+  _ + "title",
+  n + "familyName",
+  n + "firstName",
+  n + "givenName",
+  n + "name",
+  f + "label",
+  m + "prefLabel"
+], tt = [
+  ...U,
+  E + "type",
+  _ + "creator",
+  m + "inScheme",
+  f + "subClassOf"
+], et = {
+  selection: i + "9d0388cb-a178-46b2-b047-b5a98f7bdf0b",
+  analyticalEntity: i + "6d72746a-9f28-4739-8786-c6415d53c56d",
+  score: i + "bf9dce29-8123-4e8e-b24d-0c7f134bbc8e",
+  software: i + "29b00e39-75da-4945-b6c4-a0ca00f96f68",
+  hexColorCode: i + "5f1bb74f-6ea0-4073-8b68-086f98454f1c",
+  emoji: i + "04242f64-fbb3-4b5b-bb2e-3ddd59eeea18",
+  orcidId: i + "d7ef2583-ff31-4913-9ed3-bc3a1c664b21",
+  note: i + "d2a536eb-4a95-484f-b13d-f597ac8ea2fd",
+  verticality: i + "90a2ae1e-0fbc-4357-ac8a-b4b3f2a06e86",
+  fondamentaleIdentification: i + "003559fc-f033-4fc3-9c05-0d5f283123ed",
+  orcidGeneratedName: i + "73ea8d74-3526-4f6a-8830-dd369795650d"
 };
-function $(t) {
+function j(t) {
   const e = t.find((r) => r.label);
   return e ? e.label.value : "";
 }
-function lt(t, e) {
-  return `${$(e)}   ${k(t)}`;
+function rt(t, e) {
+  return `${j(e)}   ${G(t)}`;
 }
-function k(t) {
-  for (const [e, r] of Object.entries(l))
+function G(t) {
+  for (const [e, r] of Object.entries(o))
     t = t.replace(e, r !== "" ? r + ":" : "");
   return t;
 }
-const ut = async (t, e = "https://data-iremus.huma-num.fr/sparql") => {
-  const i = await (await fetch(e, {
+const st = async (t, e = "https://data-iremus.huma-num.fr/sparql") => {
+  const s = await (await fetch(e, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -294,99 +284,99 @@ const ut = async (t, e = "https://data-iremus.huma-num.fr/sparql") => {
     redirect: "follow",
     body: `query=${encodeURIComponent(t)}`
   })).text();
-  return JSON.parse(i);
+  return JSON.parse(s);
 };
-function ht(t, e) {
+function it(t, e) {
   for (const r in e)
     t = t.replaceAll("${" + r + "}", e[r]);
   return t;
 }
-class dt {
+class nt {
+  head;
+  results;
   constructor() {
-    s(this, "head");
-    s(this, "results");
-    this.head = new L(), this.results = new W();
+    this.head = new q(), this.results = new Q();
   }
 }
-class L {
+class q {
+  vars;
   constructor() {
-    s(this, "vars");
     this.vars = [];
   }
 }
-class W {
+class Q {
+  bindings;
   constructor() {
-    s(this, "bindings");
     this.bindings = [];
   }
 }
-class _t {
+class ot {
 }
-class ft {
+class at {
+  "xml:lang";
+  type;
+  value;
+  prefixedUri;
   constructor() {
-    s(this, "xml:lang");
-    s(this, "type");
-    s(this, "value");
-    s(this, "prefixedUri");
-    this["xml:lang"] = B.NONE, this.type = v.uri, this.value = "", this.prefixedUri = new m("", "");
+    this["xml:lang"] = w.NONE, this.type = S.uri, this.value = "", this.prefixedUri = new u("", "");
   }
 }
 export {
-  y as BIBO_BASE,
-  O as CRMDIG_BASE,
-  p as CRM_BASE,
-  D as CountryFlags,
-  V as DATA_IREMUS_FILES_BASE,
-  n as DATA_IREMUS_ID_BASE,
-  N as DBPEDIA_BASE,
-  g as DCTERMS_BASE,
-  A as DC_BASE,
-  J as E55_BUSINESS_ID,
-  z as E55_FORGE_FILE_URI,
-  Z as E55_TEI_FILE_URI,
-  o as FOAF_BASE,
-  it as Graph,
-  x as HEMEF_BASE,
-  P as IREMUS_GRAPH_BASE,
-  F as IREMUS_NS_BASE,
-  f as IREMUS_RESOURCE_BASE,
-  Y as LABEL_PREDICATES,
-  at as LANGS_ORDER,
-  w as LRMOO_BASE,
-  B as Languages,
-  st as Literal,
-  U as MIMO_BASE,
-  j as MUSRAD30_BASE,
-  nt as OG,
-  G as OWL_BASE,
-  u as Ontology,
-  h as OntologyClass,
-  S as OntologyProperty,
+  O as BIBO_BASE,
+  g as CRMDIG_BASE,
+  d as CRM_BASE,
+  x as CountryFlags,
+  H as DATA_IREMUS_FILES_BASE,
+  i as DATA_IREMUS_ID_BASE,
+  A as DBPEDIA_BASE,
+  _ as DCTERMS_BASE,
+  b as DC_BASE,
+  k as E55_BUSINESS_ID,
+  $ as E55_FORGE_FILE_URI,
+  Y as E55_TEI_FILE_URI,
+  n as FOAF_BASE,
+  J as Graph,
+  I as HEMEF_BASE,
+  y as IREMUS_GRAPH_BASE,
+  v as IREMUS_NS_BASE,
+  c as IREMUS_RESOURCE_BASE,
+  U as LABEL_PREDICATES,
+  X as LANGS_ORDER,
+  p as LRMOO_BASE,
+  w as Languages,
+  z as Literal,
+  B as MIMO_BASE,
+  C as MUSRAD30_BASE,
+  T as OG,
+  M as OWL_BASE,
+  l as Ontology,
+  a as OntologyClass,
+  h as OntologyProperty,
   R as OntologyStuff,
-  T as PRIORITIZED_RDF_PREFIXES,
-  m as PrefixedUri,
-  b as RDFS_BASE,
-  I as RDF_BASE,
-  l as RDF_PREFIXES,
-  ot as RESOURCE_IDENTITY_PREDICATES,
-  Q as Resource,
-  q as SCHEMAORG_BASE,
-  ct as SHERLOCK_TYPE,
-  E as SKOS_BASE,
-  dt as SparqlQueryResultObject,
-  _t as SparqlQueryResultObject_Binding,
-  L as SparqlQueryResultObject_Head,
-  W as SparqlQueryResultObject_Results,
-  ft as SparqlQueryResultObject_Variable,
-  v as Type,
-  H as XSDTypes,
-  ht as bind,
-  $ as computeIdentity,
-  lt as computeResourceLabel,
-  k as formatUri,
-  rt as getCode,
-  tt as getGraphName,
-  X as makePrefixedUri,
-  ut as querySparqlEndpoint,
-  et as sortBindings
+  L as PRIORITIZED_RDF_PREFIXES,
+  u as PrefixedUri,
+  f as RDFS_BASE,
+  E as RDF_BASE,
+  o as RDF_PREFIXES,
+  tt as RESOURCE_IDENTITY_PREDICATES,
+  P as Resource,
+  N as SCHEMAORG_BASE,
+  et as SHERLOCK_TYPE,
+  m as SKOS_BASE,
+  nt as SparqlQueryResultObject,
+  ot as SparqlQueryResultObject_Binding,
+  q as SparqlQueryResultObject_Head,
+  Q as SparqlQueryResultObject_Results,
+  at as SparqlQueryResultObject_Variable,
+  S as Type,
+  F as XSDTypes,
+  it as bind,
+  j as computeIdentity,
+  rt as computeResourceLabel,
+  G as formatUri,
+  Z as getCode,
+  K as getGraphName,
+  W as makePrefixedUri,
+  st as querySparqlEndpoint,
+  V as sortBindings
 };
