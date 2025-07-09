@@ -12,8 +12,15 @@ export const LABEL_PREDICATES = [
     SKOS_BASE + "prefLabel",
 ];
 
-export const RESOURCE_IDENTITY_PREDICATES = [
+export const RESOURCE_LIGHT_IDENTITY_PREDICATES = [
     ...LABEL_PREDICATES,
+    CRM_BASE + "P102_has_title",
+    CRM_BASE + "P48_has_preferred_identifier",
+    CRM_BASE + "altLabel",
+]
+
+export const RESOURCE_IDENTITY_PREDICATES = [
+    ...RESOURCE_LIGHT_IDENTITY_PREDICATES,
     RDF_BASE + "type",
     DCTERMS_BASE + "creator",
     SKOS_BASE + "inScheme",

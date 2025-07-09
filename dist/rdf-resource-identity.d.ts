@@ -1,4 +1,5 @@
 export declare const LABEL_PREDICATES: string[];
+export declare const RESOURCE_LIGHT_IDENTITY_PREDICATES: string[];
 export declare const RESOURCE_IDENTITY_PREDICATES: string[];
 export declare const SHERLOCK_TYPE: {
     selection: string;
