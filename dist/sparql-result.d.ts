@@ -16,6 +16,9 @@ export declare class SparqlQueryResultObject_Results {
 export declare class SparqlQueryResultObject_Binding {
     [variable: string]: SparqlQueryResultObject_Variable;
 }
+export declare class GroupedSparqlQueryResultObject_Binding {
+    [variable: string]: SparqlQueryResultObject_Variable | SparqlQueryResultObject_Variable[];
+}
 export declare class SparqlQueryResultObject_Variable {
     'xml:lang': Languages;
     type: Type;
@@ -23,3 +26,4 @@ export declare class SparqlQueryResultObject_Variable {
     prefixedUri: PrefixedUri;
     constructor();
 }
+export declare function makeGroupedBindings(bindings: SparqlQueryResultObject_Binding[], groupByVar: string, varToGroup: string[]): GroupedSparqlQueryResultObject_Binding[];

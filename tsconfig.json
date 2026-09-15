@@ -23,6 +23,10 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "lib"
+    "lib/**/*.ts"
+  ],
+  "exclude": [
+    "lib/**/*.test.ts",
+    "lib/**/*.spec.ts"
   ]
 }
