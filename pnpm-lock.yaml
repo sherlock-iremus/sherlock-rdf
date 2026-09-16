@@ -4,16 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  sherlock-rdf: link:../sherlock-rdf
-
 importers:
 
   .:
-    dependencies:
-      sherlock-rdf:
-        specifier: link:../sherlock-rdf
-        version: 'link:'
     devDependencies:
       '@reduxjs/toolkit':
         specifier: ^2.12.0
